@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Health Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>AI-Driven Health Assistant</h1>
+        <p>Empowering healthcare with AI technologies</p>
+    </header>
+    <main>
+        <section id="about">
+            <h2>About Our AI Health Assistant</h2>
+            <p>Our AI-powered health assistant utilizes cutting-edge technologies such as NLP, ML, CDSS, predictive analytics, deep learning chatbots, conversational AI, and computer vision to provide intelligent healthcare solutions.</p>
+        </section>
+        
+        <section id="technologies">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>Natural Language Processing (NLP)</li>
+                <li>Machine Learning (ML)</li>
+                <li>Clinical Decision Support Systems (CDSS)</li>
+                <li>Predictive Analytics</li>
+                <li>Deep Learning Chatbots</li>
+                <li>Conversational AI</li>
+                <li>Data Security & Privacy</li>
+                <li>Computer Vision</li>
+                <li>Speech Recognition</li>
+            </ul>
+        </section>
+        
+        <section id="chatbot">
+            <h2>Medical Chatbot</h2>
+            <div id="chat-container">
+                <div id="chat-window"></div>
+                <input type="text" id="user-input" placeholder="Ask me anything about health...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 AI Health Assistant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const diseases = {
+            "flu": "The flu is a contagious respiratory illness caused by influenza viruses. Rest, fluids, and antiviral medications may help.",
+            "diabetes": "Diabetes is a chronic disease affecting blood sugar regulation. Treatment includes diet, exercise, and medication.",
+            "hypertension": "Hypertension, or high blood pressure, can lead to serious health issues. Lifestyle changes and medication can help manage it.",
+            "covid-19": "COVID-19 is a viral infection with symptoms like fever, cough, and shortness of breath. Vaccination and hygiene are key preventive measures.",
+            "heart disease": "Heart diseases include conditions such as coronary artery disease, heart attacks, and arrhythmias. Lifestyle changes, medications, and surgery can help.",
+            "stroke": "A stroke occurs when blood flow to the brain is disrupted. Immediate medical attention is required to prevent complications.",
+            "depression": "Depression is a mental health disorder characterized by persistent sadness and loss of interest. Treatment includes therapy and medications.",
+            "anxiety": "Anxiety disorders cause excessive fear and worry. Treatment includes therapy, medication, and stress management techniques.",
+            "schizophrenia": "Schizophrenia is a severe mental disorder that affects thinking, emotions, and behavior. Treatment involves antipsychotic medications and therapy.",
+            "bipolar disorder": "Bipolar disorder causes mood swings between extreme highs and lows. Medication and therapy can help manage symptoms.",
+            "asthma": "Asthma is a chronic condition that affects the airways in the lungs, causing breathing difficulties. Treatment includes inhalers and medications.",
+            "tuberculosis": "Tuberculosis (TB) is a bacterial infection that affects the lungs. It is treated with a long course of antibiotics.",
+            "malaria": "Malaria is a mosquito-borne disease caused by a parasite. It can be treated with antimalarial drugs.",
+            "alzheimer's": "Alzheimer's disease is a progressive neurological disorder that affects memory and cognition. Treatment focuses on managing symptoms.",
+            "arthritis": "Arthritis is inflammation of the joints, causing pain and stiffness. Treatment includes medication, physical therapy, and lifestyle changes.",
+            "migraine": "Migraine is a neurological condition characterized by intense headaches, nausea, and light sensitivity. Treatment includes medication and lifestyle adjustments.",
+            "bronchitis": "Bronchitis is inflammation of the bronchial tubes, causing cough and mucus buildup. Treatment includes rest, fluids, and bronchodilators.",
+            "pneumonia": "Pneumonia is a lung infection causing cough, fever, and difficulty breathing. Treatment may include antibiotics, antivirals, and oxygen therapy.",
+            "eczema": "Eczema is a skin condition that causes dryness, itching, and inflammation. Treatment includes moisturizing and anti-inflammatory creams.",
+            "ulcer": "Ulcers are open sores that develop in the stomach lining due to acid and bacteria. Treatment includes medications and dietary changes.",
+            "hepatitis": "Hepatitis is inflammation of the liver caused by viruses, alcohol, or toxins. Treatment depends on the type and severity.",
+            "parkinson's": "Parkinson's disease is a neurodegenerative disorder affecting movement and coordination. Treatment focuses on symptom management with medication and therapy.",
+            "fever": "Fever is a temporary increase in body temperature, often due to an infection. It is usually treated with rest, fluids, and fever-reducing medications.",
+            "cold": "The common cold is a viral infection of the nose and throat. Treatment includes rest, hydration, and over-the-counter medications to relieve symptoms.",
+            "cough": "Coughing is a reflex to clear the airways of mucus and irritants. It may be caused by infections, allergies, or other conditions. Treatment depends on the cause.",
+            "leg pain": "Leg pain can result from muscle strain, arthritis, nerve damage, or circulatory issues. Treatment includes rest, physical therapy, and medication.",
+            "hand pain": "Hand pain may be caused by arthritis, carpal tunnel syndrome, nerve damage, or injuries. Treatment options include rest, splints, and pain relievers.",
+            "mental health": "Mental health covers a wide range of disorders, including depression, anxiety, schizophrenia, and bipolar disorder. Treatment includes therapy, medication, and lifestyle changes."
+        };
+
+        function sendMessage() {
+            const userInput = document.getElementById("user-input").value.toLowerCase();
+            const chatWindow = document.getElementById("chat-window");
+            let response = "Sorry, I don't have information on that disease.";
+
+            for (let disease in diseases) {
+                if (userInput.includes(disease)) {
+                    response = diseases[disease];
+                    break;
+                }
+            }
+
+            chatWindow.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+            chatWindow.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
+            document.getElementById("user-input").value = "";
+        }
+    </script>
+</body>
+</html>
